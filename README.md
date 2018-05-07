@@ -63,7 +63,7 @@ const copyFile = promisify(require('@cloudcmd/rename-files'));
 
 ## Related
 
-- [rename-files](https://github.com/cloudcmd/copy-file "copy-file") - simply copy a file
+- [copy-file](https://github.com/cloudcmd/copy-file "copy-file") - simply copy a file
 - [fs-rename-files](https://github.com/coderaiser/fs-copy-file "fs-copy-file") - Node.js `v8.5.0` `fs.copyFile` ponyfill
 - [fs-rename-files-sync](https://github.com/coderaiser/fs-copy-file-sync "fs-copy-file-sync") - Node.js `v8.5.0` `fs.copyFile` ponyfill
 
