@@ -47,27 +47,6 @@ test('rename-files: no callback', (t) => {
     t.end();
 });
 
-test('rename-files: no callback', (t) => {
-    const from = '/';
-    const to = '/tmp';
-    const names = [];
-    const [e] = tryCatch(renameFiles, from, to, names);
-    
-    t.equal(e.message, 'callback should be a function!', 'should throw when no from');
-    t.end();
-});
-
-test('rename-files: no callback', async(t) => {
-    const from = '/';
-    const to = '/tmp';
-    const names = [];
-    
-    const [e] = tryCatch(renameFiles, from, to, names);
-    
-    t.equal(e.message, 'callback should be a function!', 'should throw when no from');
-    t.end();
-});
-
 test('rename-files: no error', async(t) => {
     const from = '/a';
     const to = '/b';
