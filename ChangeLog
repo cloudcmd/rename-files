@@ -1,0 +1,7 @@
+2018.10.26, v2.0.0
+
+feature:
+- (rename-files) es2018-ify
+- (package) drop support of node < 8
+- (package) nyc v12.0.2
+

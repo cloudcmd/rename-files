@@ -1,6 +1,6 @@
 {
   "name": "@cloudcmd/rename-files",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "rename files",
   "main": "lib/rename-files.js",
   "scripts": {
@@ -15,8 +15,7 @@
     "lint:test": "eslint test -c .eslintrc.test",
     "lint": "redrun lint:*"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "coveralls": "^3.0.0",
     "eslint": "^4.0.0",
