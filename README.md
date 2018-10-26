@@ -10,30 +10,16 @@ npm i @cloudcmd/rename-files
 
 ## API
 
-### renameFiles(from, to[, names], callback)
+### renameFiles(from, to[, names])
 
 - `from` `<string>` - source filename to copy
 - `to` `<string>`-  destination filename of the copy operation
 - `names` `<array>`-  file processing streams (optional)
-- `callback` `<function>`-  callback will be called at the end or on when error occures
 
+`renameFiles` is a promise, can be used with:
 
 ```js
 const renameFiles = require('@cloudcmd/rename-files');
-
-renameFiles('/', '/tmp', ['bin'], (e) => {
-    if (!e)
-        return;
-    
-    console.error(e.message);
-});
-```
-
-You can use `renameFiles` as a promise:
-
-```js
-const {promisify} = require('es6-promisify');
-const copyFile = promisify(require('@cloudcmd/rename-files'));
 
 const ok = () => 'ok';
 const error = (e) => e.message;
@@ -48,8 +34,7 @@ You can use `renameFiles` as a promise with `async-await`:
 
 ```js
 const tryToCatch = require('try-to-catch');
-const {promisify} = require('es6-promisify');
-const copyFile = promisify(require('@cloudcmd/rename-files'));
+const renameFiles = promisify(require('@cloudcmd/rename-files'));
 
 (async () => {
     const [e] = await tryToCatch(renameFiles, '/', '/tmp', ['bin']);

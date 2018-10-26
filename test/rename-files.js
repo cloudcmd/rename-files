@@ -5,7 +5,6 @@ const {join} = require('path');
 const test = require('tape');
 const tryCatch = require('try-catch');
 const tryToCatch = require('try-to-catch');
-const {promisify} = require('es6-promisify');
 const {Volume} = require('memfs');
 const readjson = require('readjson');
 const mockRequire = require('mock-require');
@@ -15,35 +14,26 @@ const FIXTURE = readjson.sync(FIXTURE_PATH);
 
 const renameFiles = require('..');
 
-test('rename-files: no args', (t) => {
-    t.throws(renameFiles, /from should be a string!/, 'should throw when no from');
+test('rename-files: no args', async (t) => {
+    const [e] = await tryToCatch(renameFiles);
+    t.equal(e.message, 'from should be a string!', 'should throw when no from');
     t.end();
 });
 
-test('rename-files: no to', (t) => {
+test('rename-files: no to', async (t) => {
     const from = '/';
-    const [e] = tryCatch(renameFiles, from);
+    const [e] = await tryToCatch(renameFiles, from);
     
     t.equal(e.message, 'to should be a string!', 'should throw when no from');
     t.end();
 });
 
-test('rename-files: no names', (t) => {
+test('rename-files: no names', async (t) => {
     const from = '/';
     const to = '/tmp';
-    const [e] = tryCatch(renameFiles, from, to);
+    const [e] = await tryToCatch(renameFiles, from, to);
     
     t.equal(e.message, 'names should be an array!', 'should throw when no from');
-    t.end();
-});
-
-test('rename-files: no callback', (t) => {
-    const from = '/';
-    const to = '/tmp';
-    const names = [];
-    const [e] = tryCatch(renameFiles, from, to, names);
-    
-    t.equal(e.message, 'callback should be a function!', 'should throw when no from');
     t.end();
 });
 
@@ -59,7 +49,7 @@ test('rename-files: no error', async(t) => {
     
     mockRequire('fs', vol);
     
-    const renameFiles = promisify(rerequire('..'));
+    const renameFiles = rerequire('..');
     const [e] = await tryToCatch(renameFiles, from, to, names);
     
     t.notOk(e, 'should not be error');
@@ -80,7 +70,7 @@ test('rename-files: error', async(t) => {
     
     mockRequire('fs', vol);
     
-    const renameFiles = promisify(rerequire('..'));
+    const renameFiles = rerequire('..');
     const [e] = await tryToCatch(renameFiles, from, to, names);
     
     t.equal(e.code, 'ENOENT', 'should be error');
@@ -101,7 +91,7 @@ test('rename-files', async(t) => {
     
     mockRequire('fs', vol);
     
-    const renameFiles = promisify(rerequire('..'));
+    const renameFiles = rerequire('..');
     await tryToCatch(renameFiles, from, to, names);
     
     const [e] = tryCatch(vol.statSync.bind(vol), '/b/README');
