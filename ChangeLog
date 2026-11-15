@@ -1,3 +1,11 @@
+2026.11.15, v3.0.1
+
+fix:
+- 7c51952 rename-files: reject path traversal in names
+
+feature:
+- b5260d6 @cloudcmd/rename-files: eslint-plugin-putout v31.5.0
+
 2026.11.15, v3.0.0
 
 feature:
