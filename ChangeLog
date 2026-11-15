@@ -1,3 +1,23 @@
+2026.11.15, v3.0.0
+
+feature:
+- f36a04b @cloudcmd/rename-files: migrate to ESM
+- 04e0b45 @cloudcmd/rename-files: superc8 v12.7.0
+- d83aec5 @cloudcmd/rename-files: supertape v13.6.2
+- 9c8de4e @cloudcmd/rename-files: madrun v13.0.4
+- c397dbf @cloudcmd/rename-files: try-to-catch v4.1.0
+- 796a283 @cloudcmd/rename-files: try-catch v4.1.1
+- d213b3f @cloudcmd/rename-files: tape v5.10.3
+- cebecf6 @cloudcmd/rename-files: rimraf v6.1.4
+- 54da79a @cloudcmd/rename-files: redrun v13.0.4
+- 43aab6c @cloudcmd/rename-files: readjson v2.2.2
+- 8211378 @cloudcmd/rename-files: nyc v18.0.0
+- ab3fc20 @cloudcmd/rename-files: nodemon v3.1.14
+- c08c78b @cloudcmd/rename-files: memfs v4.80.1
+- 4a2e827 @cloudcmd/rename-files: eslint-plugin-node v11.1.0
+- f1d42db @cloudcmd/rename-files: eslint v10.15.0
+- 623f845 (package) rm unused sinon, sinon-called-with-diff
+
 2018.10.26, v2.0.0
 
 feature:

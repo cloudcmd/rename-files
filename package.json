@@ -1,11 +1,10 @@
 {
   "name": "@cloudcmd/rename-files",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "type": "module",
   "description": "rename files",
   "main": "lib/rename-files.js",
   "scripts": {
-    "wisdom": "madrun wisdom",
     "watch:coverage": "madrun watch:coverage",
     "watch:test": "madrun watch:test",
     "watcher": "madrun watcher",
@@ -41,6 +40,9 @@
     "rename",
     "files"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "coderaiser <mnemonic.enemy@gmail.com> (http://coderaiser.github.io/)",
   "license": "MIT",
   "bugs": {

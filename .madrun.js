@@ -1,7 +1,6 @@
 import {run} from 'madrun';
 
 export default {
-    'wisdom': () => run('build'),
     'watch:coverage': () => run('watcher', 'npm run coverage'),
     'watch:test': () => run('watcher', 'npm test'),
     'watcher': () => 'nodemon -w test -w lib --exec',
