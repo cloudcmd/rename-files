@@ -62,3 +62,50 @@ test('rename-files: error', async (t) => {
     t.equal(e.code, 'ENOENT');
     t.end();
 });
+
+const unsafeNames = [
+    '../a/README',
+    '..',
+    '.',
+    '',
+    'a/b',
+    'a\\b',
+    '/etc/passwd',
+    'a\0b',
+    1,
+];
+
+for (const name of unsafeNames) {
+    test(`rename-files: unsafe name ${JSON.stringify(name)}: should throw`, async (t) => {
+        const rename = stub();
+        
+        const [e] = await tryToCatch(renameFiles, '/a', '/b', [name], {
+            rename,
+        });
+        
+        t.equal(e?.message, 'names should not contain path separators or parent segments!');
+        t.end();
+    });
+    
+    test(`rename-files: unsafe name ${JSON.stringify(name)}: should not rename`, async (t) => {
+        const rename = stub();
+        
+        await tryToCatch(renameFiles, '/a', '/b', ['README', name], {
+            rename,
+        });
+        
+        t.notCalled(rename, 'should validate all names before renaming');
+        t.end();
+    });
+}
+
+test('rename-files: safe names with dots', async (t) => {
+    const rename = stub();
+    
+    await renameFiles('/a', '/b', ['..hidden', 'a..b', '.env'], {
+        rename,
+    });
+    
+    t.equal(rename.callCount, 3);
+    t.end();
+});
