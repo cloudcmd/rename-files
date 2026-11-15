@@ -1,10 +1,7 @@
-'use strict';
+import {test, stub} from 'supertape';
+import {tryToCatch} from 'try-to-catch';
+import {renameFiles} from '../lib/rename-files.js';
 
-const {test, stub} = require('supertape');
-
-const {tryToCatch} = require('try-to-catch');
-
-const renameFiles = require('..');
 const {assign} = Object;
 
 test('rename-files: no args', async (t) => {

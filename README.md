@@ -19,7 +19,7 @@ npm i @cloudcmd/rename-files
 `renameFiles` is a promise, can be used with:
 
 ```js
-const renameFiles = require('@cloudcmd/rename-files');
+import {renameFiles} from '@cloudcmd/rename-files';
 
 const ok = () => 'ok';
 const error = (e) => e.message;
@@ -33,17 +33,10 @@ renameFiles('/', '/tmp', ['bin'])
 You can use `renameFiles` as a promise with `async-await`:
 
 ```js
-const {tryToCatch} = require('try-to-catch');
-const renameFiles = promisify(require('@cloudcmd/rename-files'));
+import {tryToCatch} from 'try-to-catch';
+import {renameFiles} from '@cloudcmd/rename-files';
 
-(async () => {
-    const [e] = await tryToCatch(renameFiles, '/', '/tmp', ['bin']);
-    
-    if (!e)
-        return;
-    
-    console.error(e.message);
-})();
+const [e] = await tryToCatch(renameFiles, '/', '/tmp', ['bin']);
 ```
 
 ## Related
