@@ -19,7 +19,7 @@
   "devDependencies": {
     "coveralls": "^3.0.0",
     "eslint": "^10.15.0",
-    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-node": "^11.1.0",
     "memfs": "^2.8.0",
     "mock-require": "^3.0.2",
     "nodemon": "^1.11.0",
