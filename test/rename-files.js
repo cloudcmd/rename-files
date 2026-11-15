@@ -6,6 +6,7 @@ const {assign} = Object;
 
 test('rename-files: no args', async (t) => {
     const [e] = await tryToCatch(renameFiles);
+    
     t.equal(e.message, 'from should be a string!', 'should throw when no from');
     t.end();
 });
