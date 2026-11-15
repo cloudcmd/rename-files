@@ -27,7 +27,7 @@
     "readjson": "^2.2.2",
     "redrun": "^13.0.4",
     "rimraf": "^6.1.4",
-    "tape": "^4.2.0",
+    "tape": "^5.10.3",
     "try-catch": "^2.0.0",
     "try-to-catch": "^1.0.2"
   },
