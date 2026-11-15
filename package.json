@@ -1,19 +1,20 @@
 {
   "name": "@cloudcmd/rename-files",
   "version": "2.0.0",
+  "type": "commonjs",
   "description": "rename files",
   "main": "lib/rename-files.js",
   "scripts": {
-    "wisdom": "npm run build",
-    "watch:coverage": "npm run watcher -- npm run coverage",
-    "watch:test": "npm run watcher -- npm test",
-    "watcher": "nodemon -w test -w lib --exec",
-    "test": "tape test/*.js",
-    "coverage": "nyc npm test",
-    "report": "nyc report --reporter=text-lcov | coveralls",
-    "lint:lib": "eslint lib",
-    "lint:test": "eslint test -c .eslintrc.test",
-    "lint": "redrun lint:*"
+    "wisdom": "madrun wisdom",
+    "watch:coverage": "madrun watch:coverage",
+    "watch:test": "madrun watch:test",
+    "watcher": "madrun watcher",
+    "test": "madrun test",
+    "coverage": "madrun coverage",
+    "report": "madrun report",
+    "lint": "madrun lint",
+    "lint:test": "madrun lint:test",
+    "fix:lint": "madrun fix:lint"
   },
   "dependencies": {},
   "devDependencies": {
@@ -37,7 +38,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/cloudcmd/rename-files.git"
+    "url": "git+https://github.com/cloudcmd/rename-files.git"
   },
   "keywords": [
     "rename",

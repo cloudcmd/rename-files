@@ -1,4 +1,8 @@
-.*
-test
-yarn-error.log
+*.log
+*.config.*
+*.lock
 
+.*
+
+test
+coverage

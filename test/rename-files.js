@@ -1,18 +1,18 @@
 'use strict';
 
-const {join} = require('path');
+const {join} = require('node:path');
 
-const test = require('tape');
-const tryCatch = require('try-catch');
-const tryToCatch = require('try-to-catch');
+const {test} = require('supertape');
+const {tryCatch} = require('try-catch');
+const {tryToCatch} = require('try-to-catch');
 const {Volume} = require('memfs');
 const readjson = require('readjson');
 const mockRequire = require('mock-require');
 
 const FIXTURE_PATH = join(__dirname, 'fixture', 'volume.json');
-const FIXTURE = readjson.sync(FIXTURE_PATH);
 
 const renameFiles = require('..');
+const FIXTURE = readjson.sync(FIXTURE_PATH);
 
 test('rename-files: no args', async (t) => {
     const [e] = await tryToCatch(renameFiles);
@@ -37,14 +37,14 @@ test('rename-files: no names', async (t) => {
     t.end();
 });
 
-test('rename-files: no error', async(t) => {
+test('rename-files: no error', async (t) => {
     const from = '/a';
     const to = '/b';
-    const names = [
-        'README',
-    ];
+    
+    const names = ['README'];
     
     const vol = Volume.fromJSON(FIXTURE, '/');
+    
     vol.rename = vol.rename.bind(vol);
     
     mockRequire('fs', vol);
@@ -52,20 +52,21 @@ test('rename-files: no error', async(t) => {
     const renameFiles = rerequire('..');
     const [e] = await tryToCatch(renameFiles, from, to, names);
     
+    stopAll();
+    mockRequire.stop('fs');
     t.notOk(e, 'should not be error');
     
-    mockRequire.stop('fs');
     t.end();
 });
 
-test('rename-files: error', async(t) => {
+test('rename-files: error', async (t) => {
     const from = '/b';
     const to = '/a';
-    const names = [
-        'README',
-    ];
+    
+    const names = ['README'];
     
     const vol = Volume.fromJSON(FIXTURE, '/');
+    
     vol.rename = vol.rename.bind(vol);
     
     mockRequire('fs', vol);
@@ -73,20 +74,21 @@ test('rename-files: error', async(t) => {
     const renameFiles = rerequire('..');
     const [e] = await tryToCatch(renameFiles, from, to, names);
     
+    stopAll();
+    mockRequire.stop('fs');
     t.equal(e.code, 'ENOENT', 'should be error');
     
-    mockRequire.stop('fs');
     t.end();
 });
 
-test('rename-files', async(t) => {
+test('rename-files', async (t) => {
     const from = '/a';
     const to = '/b';
-    const names = [
-        'README',
-    ];
+    
+    const names = ['README'];
     
     const vol = Volume.fromJSON(FIXTURE, '/');
+    
     vol.rename = vol.rename.bind(vol);
     
     mockRequire('fs', vol);
@@ -95,10 +97,10 @@ test('rename-files', async(t) => {
     await tryToCatch(renameFiles, from, to, names);
     
     const [e] = tryCatch(vol.statSync.bind(vol), '/b/README');
-    
+    stopAll();
+    mockRequire.stop('fs');
     t.notOk(e, 'should copy file');
     
-    mockRequire.stop('fs');
     t.end();
 });
 
@@ -106,4 +108,3 @@ function rerequire(name) {
     delete require.cache[require.resolve(name)];
     return require(name);
 }
-
