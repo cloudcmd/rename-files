@@ -21,7 +21,6 @@
     "eslint-plugin-n": "^18.5.0",
     "madrun": "^13.0.4",
     "nodemon": "^3.1.14",
-    "redrun": "^13.0.4",
     "rimraf": "^6.1.4",
     "superc8": "^12.7.0",
     "supertape": "^13.6.2",

@@ -1,5 +1,15 @@
 # Rename Files [![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
 
+[NPMIMGURL]: https://img.shields.io/npm/v/@cloudcmd/rename-files.svg?style=flat
+[LicenseIMGURL]: https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
+[CoverageIMGURL]: https://coveralls.io/repos/cloudcmd/rename-files/badge.svg?branch=master&service=github
+[NPMURL]: https://npmjs.org/package/@cloudcmd/rename-files "npm"
+[BuildStatusURL]: https://github.com/cloudcmd/rename-files/actions?query=workflow%3A%22Node+CI%22 "Build Status"
+[BuildStatusIMGURL]: https://github.com/cloudcmd/rename-files/workflows/Node%20CI/badge.svg
+[DependencyStatusURL]: https://david-dm.org/cloudcmd/rename-files "Dependency Status"
+[LicenseURL]: https://tldrlegal.com/license/mit-license "MIT License"
+[CoverageURL]: https://coveralls.io/github/cloudcmd/rename-files?branch=master
+
 Rename files.
 
 ## Install
@@ -48,13 +58,3 @@ const [e] = await tryToCatch(renameFiles, '/', '/tmp', ['bin']);
 ## License
 
 MIT
-
-[NPMIMGURL]: https://img.shields.io/npm/v/@cloudcmd/rename-files.svg?style=flat
-[BuildStatusIMGURL]: https://img.shields.io/travis/cloudcmd/rename-files/master.svg?style=flat
-[LicenseIMGURL]: https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
-[CoverageIMGURL]: https://coveralls.io/repos/cloudcmd/rename-files/badge.svg?branch=master&service=github
-[NPMURL]: https://npmjs.org/package/@cloudcmd/rename-files "npm"
-[BuildStatusURL]: https://travis-ci.org/cloudcmd/rename-files "Build Status"
-[DependencyStatusURL]: https://david-dm.org/cloudcmd/rename-files "Dependency Status"
-[LicenseURL]: https://tldrlegal.com/license/mit-license "MIT License"
-[CoverageURL]: https://coveralls.io/github/cloudcmd/rename-files?branch=master
